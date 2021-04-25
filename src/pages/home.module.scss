@@ -107,7 +107,45 @@
                 filter: brightness(0.9)
             }
         }
+        @media (max-width: 720px) {
+      grid-template-columns: repeat(1, 1fr);
+
+      @media (max-width: 360px) {
+        li {
+          width: 75%;
+
+          margin-left: 3.5rem;
+
+          button {
+            bottom: 39%;
+            right: 0.5rem;
+          }
+        }
+      }
+
+      li {
+        .latestEpisodesImage {
+          min-width: 80px;
+          min-height: 80px;
+        }
+
+        .episodeDetails {
+          max-width: 50%;
+        }
+      }
     }
+  }
+  
+  @media (max-width: 720px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    padding: 0 2rem;
+  }
+    
+    
 }
 
 .allEpisodes {
@@ -167,6 +205,34 @@
                 &:hover {
                     filter: brightness(0.9)
                 }
+            }
+        }
+    }
+}
+
+.footerContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    font-size: 0.875rem;
+
+    margin: 1rem 0;
+    
+    p {
+        margin-right: 2rem;
+        
+        strong {
+            margin-right: 0.5rem;
+        }
+    }
+
+    a {
+        svg {
+            margin-right: 10px;
+
+            &:hover {
+                color: var(--purple-800);
             }
         }
     }

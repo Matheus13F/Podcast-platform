@@ -83,5 +83,9 @@
         p {
             margin: 1.5rem;
         }
+
+        @media (max-width: 720px) {
+            padding-bottom: 8rem;
+        }
     }
 }

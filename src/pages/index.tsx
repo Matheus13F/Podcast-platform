@@ -1,6 +1,7 @@
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import { format, parseISO } from 'date-fns';
+import { FiLinkedin, FiInstagram, FiGithub } from 'react-icons/fi'
 import Link from 'next/link'
 import Head from 'next/head';
 import ptBR from 'date-fns/locale/pt-BR'
@@ -61,7 +62,10 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                   <span>{episode.durationAsString}</span>
                 </div>
 
-                <button type="button" onClick={() => playList(episodeList, index)}>
+                <button
+                  type="button"
+                  onClick={() => playList(episodeList, index)}
+                >
                   <img src="/play-green.svg" alt="Tocar Agora" />
                 </button>
               </li>
@@ -99,14 +103,19 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                   </td>
                   <td>
                     <Link href={`episodes/${episode.id}`}>
-                      <a >{episode.title}</a>
+                      <a>{episode.title}</a>
                     </Link>
                   </td>
                   <td>{episode.members}</td>
                   <td style={{ width: 100 }}>{episode.publishedAt}</td>
                   <td>{episode.durationAsString}</td>
                   <td>
-                    <button type="button" onClick={() => playList(episodeList, index + latestEpisodes.length)}>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        playList(episodeList, index + latestEpisodes.length)
+                      }
+                    >
                       <img src="/play-green.svg" alt="Tocar Episodio" />
                     </button>
                   </td>
@@ -116,6 +125,21 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
           </tbody>
         </table>
       </section>
+      <footer className={styles.footerContainer}>
+        <p>
+          Created by
+          <strong> Matheus Ferreira </strong> NLW5 2021
+        </p>
+        <a href="https://github.com/Matheus13F" target="_blank">
+          <FiGithub color="#fff" />
+        </a>
+        <a href="https://www.linkedin.com/in/matheus13f/" target="_blank">
+          <FiLinkedin color="#fff" />
+        </a>
+        <a href="https://www.instagram.com/oi_matthew/" target="_blank">
+          <FiInstagram color="#fff" />
+        </a>
+      </footer>
     </div>
   );
 }

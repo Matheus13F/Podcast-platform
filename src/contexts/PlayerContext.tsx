@@ -14,9 +14,11 @@ type PLayerContextData = {
   isPlaying: boolean;
   isLooping: boolean;
   isShuffling: boolean;
+  isAuth: boolean;
   play: (episode: Episode) => void;
   playList: (episode: Episode[], index: number) => void;
   setPlayingState: (state: boolean) => void;
+  setAuth: () => void;
   togglePlay: () => void;
   toggleLoop: () => void;
   toggleShuffle: () => void;
@@ -39,6 +41,7 @@ export function PlayContextProvider({ children }: IContextProviderProps) {
   const [isPlaying, setIsPLaying] = useState(false);
   const [isLooping, setIsLooping] = useState(false);
   const [isShuffling, setIsShuffling] = useState(false);
+  const [isAuth, setIsAuth] = useState(true);
 
   function play(episode: Episode) {
     setEpisodeList([episode]);
@@ -66,6 +69,10 @@ export function PlayContextProvider({ children }: IContextProviderProps) {
 
   function setPlayingState(state: boolean) {
     setIsPLaying(state);
+  }
+
+  function setAuth() {
+    setIsAuth(!isAuth);
   }
 
   const hasPrevious = currentEpisodeIndex > 0;
@@ -112,6 +119,8 @@ export function PlayContextProvider({ children }: IContextProviderProps) {
         hasPrevious,
         hasNext,
         clearPlayerState,
+        isAuth,
+        setAuth
       }}
     >
       {children}
