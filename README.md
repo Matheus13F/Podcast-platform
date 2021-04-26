@@ -67,6 +67,10 @@ Run the following command to start the api in a development environment:
 
 ```yarn server```
 
+For NextAuth with Github, access your github, in developer settings, access New Github App and update the .env file with your github client id and secret
+
+```Happy code \{^-^}/```
+
 # :postbox: Faq
 
 **Question:** What are the technologies used in this project?
